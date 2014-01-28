@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8">
+
+    <title>fill in the blank</title>
+
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css" />
+    <script src="js/wysihtml5-0.3.0.js"></script>
+    <script src="js/jquery-1.8.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap3-wysihtml5.js"></script>
+
+    <style type="text/css" media="screen">
+        html,body {
+            height: 100%;
+        }
+        .btn.jumbo {
+            font-size: 20px;
+            font-weight: normal;
+            padding: 14px 24px;
+            margin-right: 10px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+        }
+        .area {
+            height: 100%;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .textarea {
+            border: none;
+            resize:none;
+            box-shadow: 0 0 0;
+                
+        }
+        .textarea:focus{
+            border: none;
+            outline: none !important;
+            box-shadow: 0 0 0;
+            width: 99%;
+        }
+    </style>
+</head>
+<body>
+    <div class="area" style="margin-top:20px;">
+        <textarea id="editor" class="textarea form-control" placeholder="Fill in the blank ..." style="width: 100%; height: 100%"></textarea>
+    </div>
+
+<script>
+    //$('.textarea').wysihtml5();
+    var editor = document.querySelector("#editor");
+    if (window.localStorage["TextEditorData"]) {
+        editor.value = window.localStorage["TextEditorData"];
+    }    
+    editor.addEventListener("keyup", function() {
+        window.localStorage["TextEditorData"] = editor.value;
+    });
+</script>
+
+</body>
+</html>
